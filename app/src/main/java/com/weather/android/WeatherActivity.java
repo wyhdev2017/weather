@@ -1,5 +1,6 @@
 package com.weather.android;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.weather.android.gson.Forecast;
 import com.weather.android.gson.Weather;
+import com.weather.android.service.UpdateService;
 import com.weather.android.util.HttpUtil;
 import com.weather.android.util.Utility;
 
@@ -181,6 +183,9 @@ navButton.setOnClickListener(new View.OnClickListener() {
         carWashText.setText("洗车指数：" + weather.suggestion.carWash.info);
         sportText.setText("运动建议：" + weather.suggestion.sport.info);
         weatherLayout.setVisibility(View.VISIBLE);
+        //启动定时刷新天气和背景图片的服务
+        Intent intent=new Intent(this, UpdateService.class);
+        startService(intent);
     }
 
     /**
