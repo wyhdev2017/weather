@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**只是个注释*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
